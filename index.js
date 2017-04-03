@@ -25,7 +25,7 @@ class DatePicker extends Component {
   constructor(props) {
     super(props);
 
-    let date = Moment()
+    let date = props.date ? Moment(props.date) : Moment();
 
     this.state = {
       date: date,
@@ -259,16 +259,16 @@ class DatePicker extends Component {
     ];
 
     const month = this.state.month
-    let dayOfMonth = 30    
+    let dayOfMonth = 30
     if (month == 0 || month == 2 || month == 4 || month == 6 || month == 7 || month == 9 || month == 11) {
         dayOfMonth = 31
     } else if (month == 1) {
         dayOfMonth = 29
-    } 
+    }
 
     let days = []
 
-    for (let i = 1; i <= dayOfMonth; i ++) { 
+    for (let i = 1; i <= dayOfMonth; i ++) {
         days.push(<Picker.Item key={i} label={`${i}`} value={i} />)
     }
 
